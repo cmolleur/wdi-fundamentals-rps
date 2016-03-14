@@ -1,6 +1,6 @@
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.")
-    return prompt();
+    return prompt("Please choose either 'rock', 'paper', or 'scissors'.");
 }
 function randomPlay() {
     var randomNumber = Math.random();
@@ -17,24 +17,22 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    if (move !== null) {
-        move = move;
+    if (move === true) {
+        return move;
     } else {
-        move = getInput();
+        return getInput();
     }
-    return move;
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
 } 
 
 function getComputerMove(move) {
-    if (move !== null) {
-        move = move;
+    if (move === true) {
+        return move;
     } else {
-        move = randomPlay();
+        return randomPlay();
     }
-    return move; 
 }
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
@@ -64,7 +62,7 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
+    prompt("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     while (playerWins < 5 && computerWins < 5) {
@@ -72,17 +70,16 @@ function playToFive() {
         computerMove = getComputerMove();
         winner = getWinner(playerMove,computerMove);
         if (winner === 'player') {
-            playerWins++;
-            console.log('Player chose ' + playerMove + 'while Computer chose ' + computerMove);
-            console.log('The current score is Player - ' + playerWins + 'Computer - ' + computerWins);
+            playerWins ++;
+            prompt('Player chose ' + playerMove + ' while Computer chose ' + computerMove + '. The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
         } else if (winner === 'computer') {
-            computerWins++;
-            console.log('Player chose ' + playerMove + 'while Computer chose ' + computerMove);
-            console.log('The current score is Player - ' + playerWins + 'Computer - ' + computerWins);
+            computerWins ++;
+            prompt('Player chose ' + playerMove + ' while Computer chose ' + computerMove + '. The current score is Player - ' + playerWins + ' Computer - ' + computerWins);
         } else {
-            console.log('No change in score.');
+            prompt('Tie, no change in score.');
         }
     }
+    return prompt(winner + ' wins!');
       // This function should continue to play Rock Paper Scissors until either the
   // player or the computer has won five times.
   // After each 'round', display some text in the console indicating who played
@@ -91,5 +88,8 @@ function playToFive() {
   //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
   //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
   /* YOUR CODE HERE */
-    return [playerWins, computerWins];
 }
+playToFive();
+
+
+
